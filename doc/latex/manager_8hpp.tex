@@ -1,0 +1,38 @@
+\hypertarget{manager_8hpp}{\section{manager/manager.hpp File Reference}
+\label{manager_8hpp}\index{manager/manager.\-hpp@{manager/manager.\-hpp}}
+}
+{\ttfamily \#include $<$xmlparser.\-hpp$>$}\\*
+{\ttfamily \#include \char`\"{}../process/process.\-hpp\char`\"{}}\\*
+Include dependency graph for manager.\-hpp\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manager_8hpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classManager}{Manager}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Set of operations designed to manage streams and filters, based on Anthill parallel processing model. The manager must\-:
+\begin{DoxyItemize}
+\item read up the configuration file -- config.\-xml;
+\item set both the communication layout and process placement;
+\item broadcast global configurations and parameters;
+\item start the execution of loaded filters;
+\item T\-O\-D\-O\-: treat user signals -- termination, global status, ...;
+\item wait for the termination of entire process.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Bruno Rocha Coutinho \href{mailto:coutinho@dcc.ufmg.br}{\tt coutinho@dcc.\-ufmg.\-br} 
+
+Rubens Emilio Alves Moreira \href{mailto:rubens@dcc.ufmg.br}{\tt rubens@dcc.\-ufmg.\-br}
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+x.\-y 
+\end{DoxyVersion}

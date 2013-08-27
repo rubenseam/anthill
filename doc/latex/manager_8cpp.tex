@@ -1,0 +1,64 @@
+\hypertarget{manager_8cpp}{\section{manager/manager.cpp File Reference}
+\label{manager_8cpp}\index{manager/manager.\-cpp@{manager/manager.\-cpp}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$mpi.\-h$>$}\\*
+Include dependency graph for manager.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{manager_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{manager_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{manager_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{manager.\-cpp@{manager.\-cpp}!main@{main}}
+\index{main@{main}!manager.cpp@{manager.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{manager_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+\begin{DoxyCode}
+7                                  \{
+8 
+9     \textcolor{keywordtype}{int} SIZE = 10;
+10     \textcolor{keywordtype}{double} a[SIZE][SIZE], b[SIZE], c[SIZE];
+11     \textcolor{keywordtype}{int} i, j, row, numworkers;
+12     MPI\_Status status;
+13     MPI\_Comm workercomm;
+14 
+15     MPI::Init(argc, argv);
+16     \textcolor{keywordflow}{if} (argc != 2)
+17         printf(\textcolor{stringliteral}{"usage: %s <number of workers>\(\backslash\)n"}, argv[0]);
+18     \textcolor{keywordflow}{else}
+19         numworkers = atoi(argv[1]);
+20     printf(\textcolor{stringliteral}{">>> %d WORKERS!\(\backslash\)n"}, numworkers);
+21 
+22     MPI\_Comm\_spawn(\textcolor{stringliteral}{"../worker/worker"}, MPI\_ARGV\_NULL, numworkers,
+23                MPI\_INFO\_NULL,
+24                0, MPI\_COMM\_SELF, &workercomm, MPI\_ERRCODES\_IGNORE );
+25 
+26     \textcolor{comment}{/* initialize a and b */}
+27     
+28     \textcolor{comment}{/* send b to each worker */}
+29     
+30     MPI\_Bcast( b, SIZE, MPI\_DOUBLE, MPI\_ROOT, workercomm );
+31     
+32     \textcolor{comment}{/* then normal manager code as before*/}
+33 
+34     MPI::Finalize();
+35     \textcolor{keywordflow}{return} 0;
+36 
+37 \}
+\end{DoxyCode}

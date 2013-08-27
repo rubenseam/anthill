@@ -1,0 +1,38 @@
+\hypertarget{worker_8hpp}{\section{worker/worker.hpp File Reference}
+\label{worker_8hpp}\index{worker/worker.\-hpp@{worker/worker.\-hpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include \char`\"{}../process/process.\-hpp\char`\"{}}\\*
+Include dependency graph for worker.\-hpp\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{worker_8hpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classWorker}{Worker}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classWorker}{Worker} process definition, with virtual functions to be overridden by actual implementations. The user defined actions will be executed based on events -- be it either a message or a signal.
+
+\hyperlink{classWorker}{Worker} processes must\-:
+\begin{DoxyItemize}
+\item define the virtual function {\ttfamily void Process()´;}
+\item {\ttfamily instantiate}anthill\-::packer$<$tt$>$structures to send data;
+\item instantiateanthill\-::unpacker$<$tt$>$structures to receive data;
+\item callanthill\-::terminate()` to finish the execution.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Bruno Rocha Coutinho \href{mailto:coutinho@dcc.ufmg.br}{\tt coutinho@dcc.\-ufmg.\-br} 
+
+Rubens Emilio Alves Moreira \href{mailto:rubens@dcc.ufmg.br}{\tt rubens@dcc.\-ufmg.\-br}
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+x.\-y 
+\end{DoxyVersion}

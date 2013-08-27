@@ -1,0 +1,14 @@
+<layout>
+
+	<filter name = "init">
+		<port label = "input_data" flow = "in">
+		</port>
+		<port label = "output_data" flow = "out">
+		</port>
+	</filter>
+
+</layout>
+
+<placement>
+	<...>
+</placement>
